@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.*;
 
 public class SortedCatListTest {
@@ -15,17 +16,17 @@ public class SortedCatListTest {
         CatItem b = new CatItem("Rita",1);
         CatItem c = new CatItem("Sue",3);
 
-        List<CatItem> catList =  new ArrayList();
+        List<CatItem> catList =  new ArrayList<>();
         catList.add(a);
         catList.add(b);
         catList.add(c);
 
-        List<CatItem> orderedCatList =  new ArrayList();
+        List<CatItem> orderedCatList =  new ArrayList<>();
         orderedCatList.add(b);
         orderedCatList.add(a);
         orderedCatList.add(c);
 
-        assertEquals(orderedCatList, CatRank.sortByRank(catList));
+        assertEquals(orderedCatList, catList.stream().sorted().collect(toList()));
     }
 
 
