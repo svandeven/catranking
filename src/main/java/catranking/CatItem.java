@@ -2,7 +2,7 @@ package catranking ;
 
 import java.util.Comparator;
 
-public class CatItem implements Comparable{
+public class CatItem implements Comparable<CatItem>{
     private final String name;
     private final int rank;
 
@@ -27,7 +27,7 @@ public class CatItem implements Comparable{
                 '}';
     }
 
-    public int compareTo(Object otherCat)  {
-        return this.rank - ((CatItem)otherCat).getRank();
+    public int compareTo(CatItem otherCat)  {
+        return this.rank - otherCat.getRank();
     }
 }
